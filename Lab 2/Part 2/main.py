@@ -63,36 +63,55 @@ buttonB = digitalio.DigitalInOut(board.D24)
 buttonA.switch_to_input()
 buttonB.switch_to_input()
 
+
+
+
+
+from rename_file import GetTime, ProcessTime, GetFruits, GetFruitImage, GetSeasonImage
+
+fruitIndex = 0
+seasonIndex = ProcessTime(time)
+seasons = ["Summer", "Fall", "Winter", "Spring"]
+
 while True:
 
-  # Get Time
-  # Season, Background = Process_time()
-  current_fruit = prev
+  time = GetTime()
+  fruits = GetFruits(seasons[seasonIndex])
 
   if buttonA.value and buttonB.value:
 
+    # Do Nothing
     time.sleep(0.5)
 
   elif not buttonA.value and buttonB.value:
 
-    fruit = get_fruit(next_season, fruit)
+    fruitIndex = (fruitIndex + 1) % len(fruits)
     time.sleep(0.5)
 
   elif not buttonB.value and buttonA.value:
 
-    fruit = get_fruit(season, fruit)
+    seasonIndex = (seasonIndex + 1) % len(seasons)
+    fruits = GetFruits(seasons[seasonIndex])
+    fruitIndex = 0
     time.sleep(0.5)
 
   else:
 
-    # Special
+    # Special Thing
     time.sleep(0.5)
+
+  fruitImage = GetFruitImage(fruits[fruitIndex])
+  seasonImage = GetSeasonImage(seasons[seasonIndex])
+
+
+# DRAWING IT ALL #TODO
+# Stack Images
 
   # Draw a black filled box to clear the image.
   draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
   y = top
-  draw.text((x,y), "WOWIE", font=font, end="", flush=True, fill="#FFFFFF")
+  draw.text((x,y), "Text", font=font, end="", flush=True, fill="#FFFFFF")
 
   # Display image.
   disp.image(image, rotation)
