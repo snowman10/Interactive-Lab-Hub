@@ -71,7 +71,7 @@ from rename_file import GetTime, ProcessTime, GetFruits, GetFruitImage, GetSeaso
 
 fruitIndex = 0
 seasonIndex = ProcessTime(time)
-seasons = ["Summer", "Fall", "Winter", "Spring"]
+seasons = ["Winter", "Spring", "Summer", "Autumn"]
 
 while True:
 
