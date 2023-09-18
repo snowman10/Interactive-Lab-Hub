@@ -108,8 +108,8 @@ https://youtu.be/27pX-y4s5iU
 
 Task Distribution:
 
-Rowan: Came up with the project idea and designed the storyboard.
-Judy: Helped design the storyboard and documented the README.
-Kazim: Completed the main skeleton of the coding and combined different parts of the code.
-Arystan: Implemented the clock portion of the code and combined different parts of the code.
+Rowan: Came up with the project idea and designed the storyboard.\
+Judy: Helped design the storyboard and documented the README.\
+Kazim: Completed the main skeleton of the coding and combined different parts of the code.\
+Arystan: Implemented the clock portion of the code and combined different parts of the code.\
 Rei: Implemented "fruits_clock_image.py," which displays the image and text.
