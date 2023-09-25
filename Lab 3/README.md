@@ -1,5 +1,13 @@
 # Chatterboxes
+
 **NAMES OF COLLABORATORS HERE**
+
+Kazim Jafri (khj23)\
+Rei Chen (rc884)\
+Zixin Li (zl865)\
+Rowan Wu (rww99)\
+Arystan Tatishev (at855)
+
 [![Watch the video](https://user-images.githubusercontent.com/1128669/135009222-111fe522-e6ba-46ad-b6dc-d1633d21129c.png)](https://www.youtube.com/embed/Q8FWzLMobx0?start=19)
 
 In this lab, we want you to design interaction with a speech-enabled device--something that listens and talks to you. This device can do anything *but* control lights (since we already did that in Lab 1).  First, we want you first to storyboard what you imagine the conversational interaction to be like. Then, you will use wizarding techniques to elicit examples of what people might say, ask, or respond.  We then want you to use the examples collected from at least two other people to inform the redesign of the device.
@@ -135,9 +143,78 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 
 \*\***Post your storyboard and diagram here.**\*\*
 
+Idea 1: Camera Magic Mirror
+
+Idea: Create a smart mirror that responds to voice commands for information. 
+
+![](./img/img1.png)
+
+Idea 2: Language Interpretter
+
+Idea: Automatically interprets the language you talk in and responds back in the language you input
+
+Idea 3: Automatic Bestie
+
+Idea: Listens to and validates a friend sharing a long-winded story
+
+Idea 4: Starbucks Experience
+
+Idea: Device takes in the order information from the customer. Translates the information into Starbucks style/format, and speaks a messed up version of the customer’s name. 
+
 Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses. 
 
 \*\***Please describe and document your process.**\*\*
+
+Idea 1: Camera Magic Mirror
+
+Dialogue: \
+User: "Mirror,mirror, how do I look today?"\
+Smart Mirror: “You look amazing.” \
+User: "Mirror, mirror, what should I wear today?"\
+Smart Mirror: “You can wear a shirt.”
+
+Idea 2: Language Interpretter
+
+Dialogue: Cómo estás?\
+Interpreter: Bien, y tú?\
+Dialogue: 好的！今天天氣怎麼樣？\
+Interpreter: 氣溫70度，正在下雨。\
+
+Idea 3: Automatic Bestie
+
+Dialogue:\
+Pi: How was your day?\
+Friend: The craziest thing happened today! [Story…]\
+Pi: OMG, no way!\
+Friend: [telling story]\
+Pi: And then what?\
+Friend: she slapped him on the face!\
+Pi: Oh no she did NOT! What happened next?\
+Friend: [continues story] \
+Pi: Uh huh…\
+Friend: [finishes story] \
+Pi: That’s SO crazy.
+
+Dialogue:\
+Friend: [Telling story…] I can’t believe he did that to me.\
+Pi: Ugh, he sucks! 
+
+Friend: But I was acting crazy.\
+Pi: It wasn’t your fault, girl!\
+Friend: You know what, you’re right! Thanks, friend!\
+Pi: Any day, I’m on your side!
+
+Idea 4: Starbucks Experience
+
+Dialogue:
+
+Customer: I want a large–\
+Device: A venti.\
+Customer: Yeah, a venti matcha latte.\
+Device: A venti matcha latte.\
+Device: What is your name?\
+Customer: Rei Chen\
+Device: A venti matcha latte for Reiss Creez 
 
 ### Acting out the dialogue
 
@@ -145,10 +222,25 @@ Find a partner, and *without sharing the script with your partner* try out the d
 
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
 
+Idea 4: Starbucks Experience:\
+Video: https://youtu.be/AT-75OkrOAM
+
+Feedback: 
+The customer was really surprised when the device interrupted her to correct her to the correct Starbucks name. The customer did not give the last name when the device asked for the customer’s name.
+
+Idea 1: Camera Mirror Interpreter\
+Video: https://youtu.be/8VSTWea1uJw
+
+Feedback: 
+The user’s response was similar to what we thought they would ask.
+However, when we explained what our device is like, we did ask the user to start with the phrase “mirror, mirror” when talking to the device. If we did not ask the user prior to the user testing, they would not know about this. 
+
 ### Wizarding with the Pi (optional)
 In the [demo directory](./demo), you will find an example Wizard of Oz project. In that project, you can see how audio and sensor data is streamed from the Pi to a wizard controller that runs in the browser.  You may use this demo code as a template. By running the `app.py` script, you can see how audio and sensor data (Adafruit MPU-6050 6-DoF Accel and Gyro Sensor) is streamed from the Pi to a wizard controller that runs in the browser `http://<YouPiIPAddress>:5000`. You can control what the system says from the controller as well!
 
 \*\***Describe if the dialogue seemed different than what you imagined, or when acted out, when it was wizarded, and how.**\*\*
+
+Optional Wizarding was Skipped
 
 # Lab 3 Part 2
 
