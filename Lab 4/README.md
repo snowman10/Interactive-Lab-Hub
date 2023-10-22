@@ -91,15 +91,28 @@ G) [Record the interaction](#part-g)
 
 **\*\*\*Sketch 5 designs for how you would physically position your display and any buttons or knobs needed to interact with it.\*\*\***
 
+* Interactive Whack-A-Mole
+  * Two Distance Sensors
+  * One Button
+  * Four Pairs of Red and Green LEDs
+* Claw Machine
+* Ice Cream Game
+* Snake
+* One-Man Band
+
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
+
+* How to implement proximity sensors and accurately quantize the joystick positions.
+* How accurate distance sensors are when hand is above them
+* Responsiveness of button
 
 **\*\*\*Pick one of these display designs to integrate into your prototype.\*\*\***
 
 **\*\*\*Explain the rationale for the design.\*\*\*** 
 
-Build a cardboard prototype of your design.
-
 **\*\*\*Document your rough prototype.\*\*\***
+
+Rough Prototype: https://youtu.be/bCWgo63QzWM
 
 ## Part 2
 
@@ -117,7 +130,8 @@ Build a cardboard prototype of your design.
 
 Link: https://www.youtube.com/watch?v=XiAZwO4ZLEY
 
-Document all the prototypes and iterations you have designed and worked on! Again, deliverables for this lab are writings, sketches, photos, and videos that show what your prototype:
-* "Looks like": shows how the device should look, feel, sit, weigh, etc.
-* "Works like": shows what the device can do
-* "Acts like": shows how a person would interact with the device
+"Looks Like": For this lab we made a whack a mole, but we changed the moles to flies. The device is made out of cardboard. It is a box with 4 pairs of LEDs attached on top of it. We put flies over the LEDs so the flies light up. There is also a swatter on the side for the users to hit the flies.
+
+"Works Like": Each game is timed, the user's aim is to hit as many flies as they can in the time limit. The red LEDs on the device lights up to show which flies the users should hit. The green LED lights up to indicate that the fly has been hit. A score of the user will be displayed at the end.
+
+"Acts Like": The user can hit the fly using the swatter at the side. He/she needs to hit the fly that lights up red.
