@@ -2,11 +2,11 @@
 
 **NAMES OF COLLABORATORS HERE**
 
-
-For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
-Your **observant device** could, for example, count items, find objects, recognize an event or continuously monitor a room.
-
-This lab will help you think through the design of observant systems, particularly corner cases that the algorithms need to be aware of.
+Kazim Jafri (khj23)\
+Rei Chen (rc884)\
+Zixin Li (zl865)\
+Rowan Wu (rww99)\
+Arystan Tatishev (at855)
 
 ## Prep
 
@@ -45,7 +45,7 @@ D) [Reflect](#part-d)
 
 For this first demo, you will be using PyTorch and running a MobileNet v2 classification model in real time (30 fps+) on the CPU. We will be following steps adapted from [this tutorial](https://pytorch.org/tutorials/intermediate/realtime_rpi.html).
 
-![torch](Readme_files/pyt.gif)
+![torch](reference/Readme_files/pyt.gif)
 
 
 To get started, install dependencies into a virtual environment for this exercise as described in [prep.md](prep.md).
@@ -78,7 +78,7 @@ The following sections describe tools ([MediaPipe](#mediapipe) and [Teachable Ma
 
 A recent open source and efficient method of extracting information from video streams comes out of Google's [MediaPipe](https://mediapipe.dev/), which offers state of the art face, face mesh, hand pose, and body pose detection.
 
-![Media pipe](Readme_files/mp.gif)
+![Media pipe](reference/Readme_files/mp.gif)
 
 To get started, install dependencies into a virtual environment for this exercise as described in [prep.md](prep.md):
 
@@ -102,7 +102,7 @@ Consider how you might use this position based approach to create an interaction
 #### Teachable Machines
 Google's [TeachableMachines](https://teachablemachine.withgoogle.com/train) is very useful for prototyping with the capabilities of machine learning. We are using [a python package](https://github.com/MeqdadDev/teachable-machine-lite) with tensorflow lite to simplify the deployment process.
 
-![Tachable Machines Pi](Readme_files/tml_pi.gif)
+![Tachable Machines Pi](reference/Readme_files/tml_pi.gif)
 
 To get started, install dependencies into a virtual environment for this exercise as described in [prep.md](prep.md):
 
@@ -116,8 +116,8 @@ After installation, connect your webcam to your Pi and use **VNC to access to yo
 
 
 Next train your own model. Visit [TeachableMachines](https://teachablemachine.withgoogle.com/train), select Image Project and Standard model. The raspberry pi 4 is capable to run not just the low resource models. Second, use the webcam on your computer to train a model. *Note: It might be advisable to use the pi webcam in a similar setting you want to deploy it to improve performance.*  For each class try to have over 150 samples, and consider adding a background or default class where you have nothing in view so the model is trained to know that this is the background. Then create classes based on what you want the model to classify. Lastly, preview and iterate. Finally export your model as a 'Tensorflow lite' model. You will find an '.tflite' file and a 'labels.txt' file. Upload these to your pi (through one of the many ways such as [scp](https://www.raspberrypi.com/documentation/computers/remote-access.html#using-secure-copy), sftp, [vnc](https://help.realvnc.com/hc/en-us/articles/360002249917-VNC-Connect-and-Raspberry-Pi#transferring-files-to-and-from-your-raspberry-pi-0-6), or a connected visual studio code remote explorer).
-![Teachable Machines Browser](Readme_files/tml_browser.gif)
-![Tensorflow Lite Download](Readme_files/tml_download-model.png)
+![Teachable Machines Browser](reference/Readme_files/tml_browser.gif)
+![Tensorflow Lite Download](reference/Readme_files/tml_download-model.png)
 
 Include screenshots of your use of Teachable Machines, and write how you might use this to create your own classifier. Include what different affordances this method brings, compared to the OpenCV or MediaPipe options.
 
