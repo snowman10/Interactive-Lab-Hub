@@ -86,6 +86,7 @@ G) [Record the interaction](#part-g)
   * Two Distance Sensors
   * One Button
   * Four Pairs of Red and Green LEDs
+![](./img/img1.png)
 * Claw Machine
 * Ice Cream Game
 * Snake
