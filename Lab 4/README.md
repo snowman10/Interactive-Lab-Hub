@@ -82,11 +82,11 @@ G) [Record the interaction](#part-g)
 
 **\*\*\*Draw 5 sketches of different ways you might use your sensor, and how the larger device needs to be shaped in order to make the sensor useful.\*\*\***
 
+![](./img/img1.jpeg)
 * Interactive Whack-A-Mole
   * Two Distance Sensors
   * One Button
   * Four Pairs of Red and Green LEDs
-![](./img/img1.png)
 * Claw Machine
 * Ice Cream Game
 * Snake
