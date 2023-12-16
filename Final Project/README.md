@@ -1,4 +1,3 @@
-
 # Final Project
 
 **NAMES OF COLLABORATORS HERE**

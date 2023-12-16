@@ -8,136 +8,17 @@ Zixin Li (zl865)\
 Rowan Wu (rww99)\
 Arystan Tatishev (at855)
 
-## Prep
 
-1.  Install VNC on your laptop if you have not yet done so. This lab will actually require you to run script on your Pi through VNC so that you can see the video stream. Please refer to the [prep for Lab 2](https://github.com/FAR-Lab/Interactive-Lab-Hub/blob/-/Lab%202/prep.md#using-vnc-to-see-your-pi-desktop).
-2.  Install the dependencies as described in the [prep document](prep.md). 
-3.  Read about [OpenCV](https://opencv.org/about/),[Pytorch](https://pytorch.org/), [MediaPipe](https://mediapipe.dev/), and [TeachableMachines](https://teachablemachine.withgoogle.com/).
-4.  Read Belloti, et al.'s [Making Sense of Sensing Systems: Five Questions for Designers and Researchers](https://www.cc.gatech.edu/~keith/pubs/chi2002-sensing.pdf).
-
-### For the lab, you will need:
-1. Pull the new Github Repo
-1. Raspberry Pi
-1. Webcam 
-
-### Deliverables for this lab are:
-1. Show pictures, videos of the "sense-making" algorithms you tried.
-1. Show a video of how you embed one of these algorithms into your observant system.
-1. Test, characterize your interactive device. Show faults in the detection and how the system handled it.
-
-## Overview
-Building upon the paper-airplane metaphor (we're understanding the material of machine learning for design), here are the four sections of the lab activity:
-
-A) [Play](#part-a)
-
-B) [Fold](#part-b)
-
-C) [Flight test](#part-c)
-
-D) [Reflect](#part-d)
-
----
-
-### Part A
-### Play with different sense-making algorithms.
-
-#### Pytorch for object recognition
-
-For this first demo, you will be using PyTorch and running a MobileNet v2 classification model in real time (30 fps+) on the CPU. We will be following steps adapted from [this tutorial](https://pytorch.org/tutorials/intermediate/realtime_rpi.html).
-
-![torch](reference/Readme_files/pyt.gif)
-
-
-To get started, install dependencies into a virtual environment for this exercise as described in [prep.md](prep.md).
-
-Make sure your webcam is connected.
-
-You can check the installation by running:
-
-```
-python -c "import torch; print(torch.__version__)"
-```
-
-If everything is ok, you should be able to start doing object recognition. For this default example, we use [MobileNet_v2](https://arxiv.org/abs/1801.04381). This model is able to perform object recognition for 1000 object classes (check [classes.json](classes.json) to see which ones.
-
-Start detection by running  
-
-```
-python infer.py
-```
-
-The first 2 inferences will be slower. Now, you can try placing several objects in front of the camera.
-
-Read the `infer.py` script, and get familiar with the code. You can change the video resolution and frames per second (fps). You can also easily use the weights of other pre-trained models. You can see examples of other models [here](https://pytorch.org/tutorials/intermediate/realtime_rpi.html#model-choices). 
-
-
-### Machine Vision With Other Tools
-The following sections describe tools ([MediaPipe](#mediapipe) and [Teachable Machines](#teachable-machines)).
-
-#### MediaPipe
-
-A recent open source and efficient method of extracting information from video streams comes out of Google's [MediaPipe](https://mediapipe.dev/), which offers state of the art face, face mesh, hand pose, and body pose detection.
-
-![Media pipe](reference/Readme_files/mp.gif)
-
-To get started, install dependencies into a virtual environment for this exercise as described in [prep.md](prep.md):
-
-Each of the installs will take a while, please be patient. After successfully installing mediapipe, connect your webcam to your Pi and use **VNC to access to your Pi**, open the terminal, and go to Lab 5 folder and run the hand pose detection script we provide:
-(***it will not work if you use ssh from your laptop***)
-
-
-```
-(venv-ml) pi@ixe00:~ $ cd Interactive-Lab-Hub/Lab\ 5
-(venv-ml) pi@ixe00:~ Interactive-Lab-Hub/Lab 5 $ python hand_pose.py
-```
-
-Try the two main features of this script: 1) pinching for percentage control, and 2) "[Quiet Coyote](https://www.youtube.com/watch?v=qsKlNVpY7zg)" for instant percentage setting. Notice how this example uses hardcoded positions and relates those positions with a desired set of events, in `hand_pose.py`. 
-
-Consider how you might use this position based approach to create an interaction, and write how you might use it on either face, hand or body pose tracking.
-
-(You might also consider how this notion of percentage control with hand tracking might be used in some of the physical UI you may have experimented with in the last lab, for instance in controlling a servo or rotary encoder.)
-
-
-
-#### Teachable Machines
-Google's [TeachableMachines](https://teachablemachine.withgoogle.com/train) is very useful for prototyping with the capabilities of machine learning. We are using [a python package](https://github.com/MeqdadDev/teachable-machine-lite) with tensorflow lite to simplify the deployment process.
-
-![Tachable Machines Pi](reference/Readme_files/tml_pi.gif)
-
-To get started, install dependencies into a virtual environment for this exercise as described in [prep.md](prep.md):
-
-After installation, connect your webcam to your Pi and use **VNC to access to your Pi**, open the terminal, and go to Lab 5 folder and run the example script:
-(***it will not work if you use ssh from your laptop***)
-
-
-```
-(venv-tml) pi@ixe00:~ Interactive-Lab-Hub/Lab 5 $ python tml_example.py
-```
-
-
-Next train your own model. Visit [TeachableMachines](https://teachablemachine.withgoogle.com/train), select Image Project and Standard model. The raspberry pi 4 is capable to run not just the low resource models. Second, use the webcam on your computer to train a model. *Note: It might be advisable to use the pi webcam in a similar setting you want to deploy it to improve performance.*  For each class try to have over 150 samples, and consider adding a background or default class where you have nothing in view so the model is trained to know that this is the background. Then create classes based on what you want the model to classify. Lastly, preview and iterate. Finally export your model as a 'Tensorflow lite' model. You will find an '.tflite' file and a 'labels.txt' file. Upload these to your pi (through one of the many ways such as [scp](https://www.raspberrypi.com/documentation/computers/remote-access.html#using-secure-copy), sftp, [vnc](https://help.realvnc.com/hc/en-us/articles/360002249917-VNC-Connect-and-Raspberry-Pi#transferring-files-to-and-from-your-raspberry-pi-0-6), or a connected visual studio code remote explorer).
-![Teachable Machines Browser](reference/Readme_files/tml_browser.gif)
-![Tensorflow Lite Download](reference/Readme_files/tml_download-model.png)
-
-Include screenshots of your use of Teachable Machines, and write how you might use this to create your own classifier. Include what different affordances this method brings, compared to the OpenCV or MediaPipe options.
-
-#### (Optional) Legacy audio and computer vision observation approaches
-In an earlier version of this class students experimented with observing through audio cues. Find the material here:
-[Audio_optional/audio.md](Audio_optional/audio.md). 
-Teachable machines provides an audio classifier too. If you want to use audio classification this is our suggested method. 
-
-In an earlier version of this class students experimented with foundational computer vision techniques such as face and flow detection. Techniques like these can be sufficient, more performant, and allow non discrete classification. Find the material here:
-[CV_optional/cv.md](CV_optional/cv.md).
-
-### Part B
 ### Construct a simple interaction.
 
 * Pick one of the models you have tried, and experiment with prototyping an interaction.
 * This can be as simple as the boat detector showen in a previous lecture from Nikolas Matelaro.
 * Try out different interaction outputs and inputs.
 
+We tried out the teachable machines. The AI was trained on recognizing if the person is in front of the camera or if the person is holding a bottle in their hands. The user can stand in front of the camera and the AI will recognize their poses. 
 
-**\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\***
+Video: https://youtu.be/DjKtj3Q0j5g
+
 
 ### Part C
 ### Test the interaction prototype
@@ -145,33 +26,47 @@ In an earlier version of this class students experimented with foundational comp
 Now flight test your interactive prototype and **note down your observations**:
 For example:
 1. When does it what it is supposed to do?
+   
+The prototype tells whether the person in front of the camera is just sitting there or is holding a bottle in their hands. 
+
 1. When does it fail?
+
+It fails sometimes when there are more than one person in front of the camera. Although no one is holding a bottle, the AI still thinks that a person is holding up a bottle. It also fails at times when the person is holding up their hand but there is not water bottle in their hand. The AI still thinks that the person is holding up a bottle.
+   
 1. When it fails, why does it fail?
+
+It is likely because the AI was only trained on the data of one person and one bottle. So it is harder to tell the pose of the person from another user. Also, the AI might be more sensitive to the pose of the person, so even if there is no bottle, the AI still thinks the person is holding a bottle if their hand is held up. 
+
 1. Based on the behavior you have seen, what other scenarios could cause problems?
+
+When there are many users in front of the camera at once. 
 
 **\*\*\*Think about someone using the system. Describe how you think this will work.\*\*\***
 1. Are they aware of the uncertainties in the system?
+
+It is not hard for users to tell that the system isn’t accurate if they can see the feedback from the AI, as they will know that the AI is not telling their poses right. However, it will be more difficult if they cannot visually see the AI’s feedback. 
+   
 1. How bad would they be impacted by a miss classification?
+
+It depends on the situation. It would not be very bad if the user is not using it to complete a task. 
+
+
 1. How could change your interactive system to address this?
+
+Allow only one person into the scene at a time.
+  
 1. Are there optimizations you can try to do on your sense-making algorithm.
 
-### Part D
-### Characterize your own Observant system
+Train the AI on more images/data of different people, bottles and poses. 
 
-Now that you have experimented with one or more of these sense-making systems **characterize their behavior**.
-During the lecture, we mentioned questions to help characterize a material:
-* What can you use X for?
-* What is a good environment for X?
-* What is a bad environment for X?
-* When will X break?
-* When it breaks how will X break?
-* What are other properties/behaviors of X?
-* How does X feel?
+We want to create a system that classifies geese and cats. This is a good system for the cat shelter where there are so many geese and ducks. It might not be a good environment where there are a lot of animals and no goose or cats. 
 
-**\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
 
 ### Part 2.
 
 Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
 
-**\*\*\*Include a short video demonstrating the finished result.\*\*\***
+Continuing from last week, we build a Cat or Goose detector. This can be placed at the cat sanctuary on the Island. When a cat approaches, the device plays a cat sound. When a goose approaches the device plays a cat sound. 
+
+Link to our video: https://youtu.be/16cqiLQ8eG8
+
